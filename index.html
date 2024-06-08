@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Versatile Calculator </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .calculator {
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+        input[type="text"], select, input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .result {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Versatile Calculator</h1>
+        <!-- Form to capture user input for calculations -->
+        <form action="calculator.php" method="post">
+            <input type="text" name="num1" placeholder="Enter first number" required>
+            <input type="text" name="num2" placeholder="Enter second number (if applicable)">
+            <select name="operation" required>
+                <option value="add">Addition</option>
+                <option value="subtract">Subtraction</option>
+                <option value="multiply">Multiplication</option>
+                <option value="divide">Division</option>
+                <option value="exponentiation">Exponentiation</option>
+                <option value="percentage">Percentage</option>
+                <option value="square_root">Square Root</option>
+                <option value="logarithm">Logarithm</option>
+            </select>
+            <input type="submit" value="Calculate">
+        </form>
+        <?php
+        // Check if result is set and display it
+        if (isset($_POST['result'])) {
+            echo "<div class='result'>Result: " . $_POST['result'] . "</div>";
+        }
+        ?>
+    </div>
+</body>
+</html>
